@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from "@angular
 import {NativeScriptFormsModule} from "@nativescript/angular";
 import {Page, ScrollEventData, ScrollView} from "@nativescript/core";
 import {AuthService} from "~/app/services/AuthService";
+import {showActionSnackbar, showColorfulSnackbar} from "~/app/components/snackbar/Snackbar";
 
 
 @Component({
@@ -33,7 +34,7 @@ export class RegisterComponent {
     page.actionBarHidden = true;
   }
 
-  public register(){
+  public register() {
     this.loading = true;
     console.log("Register con datos >>>>")
     console.log(this.registerForm.value);
@@ -42,36 +43,43 @@ export class RegisterComponent {
     var nombre = this.registerForm.get('nombre').value
     var apellido = this.registerForm.get('apellido').value
 
-    console.log("Se procedera a realizar el registro con el email ->"+ email)
+    console.log("Se procedera a realizar el registro con el email ->" + email)
 
-    this.authService.register(email, password, nombre, apellido).subscribe( response =>{
-      console.log(response)
-      if(response.status == 200){
-        console.log("Se realizo el registro satisfactoriamente.")
-        this.loading = false;
-      } else {
-        this.loading = false;
+    if (email == "" || password == "" || nombre == "" || apellido == "") {
+      this.loading = false
+      showActionSnackbar("Debe completar todos los campos para el registro.", "Cerrar", 10000)
+    } else {
+
+      this.authService.register(email, password, nombre, apellido).subscribe(response => {
+        console.log(response)
+        if (response.status == 200) {
+          console.log("Se realizo el registro satisfactoriamente.")
+          showColorfulSnackbar("Registro exitoso!!", "white", "white", "green")
+          this.loading = false;
+        } else {
+          this.loading = false;
+          console.log("Ocurrio un error al intentar realizar el registro.")
+          showColorfulSnackbar("Ocurrio un error al intentar realizar el registro.", "white", "white", "red")
+        }
+
+      }, error => {
+        console.log(error)
         console.log("Ocurrio un error al intentar realizar el registro.")
+        this.loading = false;
+        showColorfulSnackbar("Ocurrio un error al intentar realizar el registro.", "white", "white", "red")
+      })
+    }
 
-      }
-
-    }, error => {
-      console.log(error)
-      console.log("Ocurrio un error al intentar realizar el registro.")
-      this.loading = false;
-    })
   }
-
-
   onFocus($event: FocusEvent) {
-    
+
   }
 
   onBlur($event: FocusEvent) {
-    
+
   }
 
   onTextChange($event: any) {
-    
+
   }
 }
