@@ -1,0 +1,25 @@
+<ScrollView (scroll)="onScroll($event)">
+
+ <StackLayout class="p-20">
+
+  <image src="res://logo" height="700px" width="auto" stretch="aspectFill"></image>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+   <Label text="Email" class="fontSize registerLabelMargins"></Label>
+   <TextField formControlName="email" hint="Ingrese su email"></TextField>
+
+   <Label text="Contraseña" class="fontSize registerLabelMargins"></Label>
+   <TextField formControlName="password" hint="Ingrese su contraseña"></TextField>
+
+   <Label text="Nombre" class="fontSize registerLabelMargins"></Label>
+   <TextField formControlName="nombre" hint="Ej Juan"></TextField>
+
+   <Label text="Apellido" class="fontSize registerLabelMargins"></Label>
+   <TextField formControlName="apellido" hint="Ej Perez"></TextField>
+
+   <Button text="Registrarse"  isEnabled="{{!loading}}" (tap)="register()" class="primaryDarkColorBtn btnMargins"></Button>
+
+  </form>
+
+ </StackLayout>
+</ScrollView>

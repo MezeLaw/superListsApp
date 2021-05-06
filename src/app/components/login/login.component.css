@@ -1,0 +1,48 @@
+.fontSize {
+    font-size: xxx-large;
+}
+
+.loginLabelMargins{
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+.btnMargins {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.registerLabelMargins{
+    margin-top: 50px;
+    margin-bottom: 12px;
+}
+
+.primaryColorBtn {
+    background-color: #c41061;
+    color: white;
+}
+
+.primaryLightColorBtn {
+    background-color: #fc548e;
+    color: white;
+}
+
+.primaryDarkColorBtn {
+    background-color: #8e0038;
+    color: white;
+}
+
+.secondaryColorBtn {
+    background-color: #757575;
+    color: white;
+}
+
+.secondaryLightColorBtn {
+    background-color: #a4a4a4;
+    color: white;
+}
+
+.secondaryDarkColorBtn {
+    background-color: #494949;
+    color: white;
+}
