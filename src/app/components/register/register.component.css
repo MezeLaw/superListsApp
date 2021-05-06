@@ -8,7 +8,7 @@
 }
 
 .btnMargins {
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -44,4 +44,13 @@
 .secondaryDarkColorBtn {
     background-color: #494949;
     color: white;
+}
+
+
+.textFieldMargins{
+    margin-top: 40px;
+}
+
+.inputHeight {
+    height: 180px;
 }

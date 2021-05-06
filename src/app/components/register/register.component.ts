@@ -2,7 +2,8 @@ import {Component, NgModule, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {NativeScriptFormsModule} from "@nativescript/angular";
 import {Page, ScrollEventData, ScrollView} from "@nativescript/core";
-import {AuthService} from "../services/AuthService";
+import {AuthService} from "~/app/services/AuthService";
+
 
 @Component({
   selector: 'app-home',
@@ -62,8 +63,15 @@ export class RegisterComponent {
   }
 
 
+  onFocus($event: FocusEvent) {
+    
+  }
 
+  onBlur($event: FocusEvent) {
+    
+  }
 
-
-
+  onTextChange($event: any) {
+    
+  }
 }

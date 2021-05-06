@@ -3,7 +3,8 @@ import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from "@angular
 import {NativeScriptFormsModule} from "@nativescript/angular";
 import {Router} from "@angular/router";
 import {Page, ScrollEventData, ScrollView} from "@nativescript/core";
-import {AuthService} from "../services/AuthService";
+import {AuthService} from "~/app/services/AuthService";
+
 
 @Component({
   selector: 'app-home',
@@ -55,6 +56,15 @@ export class LoginComponent  {
   }
 
 
+  onTextChange($event: any) {
+    
+  }
 
+  onFocus($event: FocusEvent) {
+    
+  }
 
+  onBlur($event: FocusEvent) {
+    
+  }
 }

@@ -2,9 +2,9 @@
 
  <StackLayout class="p-20">
 
-  <image src="res://logo" height="700px" width="auto" stretch="aspectFill"></image>
+  <image src="~/app/images/logo.png" height="700px" width="auto" stretch="aspectFill"></image>
   <form [formGroup]="registerForm" (ngSubmit)="register()">
-
+ <!--
    <Label text="Email" class="fontSize registerLabelMargins"></Label>
    <TextField formControlName="email" hint="Ingrese su email"></TextField>
 
@@ -16,9 +16,28 @@
 
    <Label text="Apellido" class="fontSize registerLabelMargins"></Label>
    <TextField formControlName="apellido" hint="Ej Perez"></TextField>
+  -->
 
-   <Button text="Registrarse"  isEnabled="{{!loading}}" (tap)="register()" class="primaryDarkColorBtn btnMargins"></Button>
+   <MDTextField  placeholderColor="black" variant="outline"
+                 hint="Ingrese su email" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
+                 (textChange)="onTextChange($event)" formControlName="email" class="inputHeight textFieldMargins"></MDTextField>
 
+
+   <MDTextField  placeholderColor="black" variant="outline"
+                 hint="Ingrese su contraseña" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
+                 (textChange)="onTextChange($event)" formControlName="password" class="inputHeight textFieldMargins"></MDTextField>
+
+   <MDTextField  placeholderColor="black" variant="outline"
+                 hint="Ingrese su nombre" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
+                 (textChange)="onTextChange($event)" formControlName="nombre" class="inputHeight textFieldMargins"></MDTextField>
+
+   <MDTextField  placeholderColor="black" variant="outline"
+                 hint="Ingrese su apellido" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
+                 (textChange)="onTextChange($event)" formControlName="apellido" class="inputHeight textFieldMargins"></MDTextField>
+
+   <!--<Button text="Registrarse"  isEnabled="{{!loading}}" (tap)="register()" class="primaryDarkColorBtn btnMargins"></Button>
+ -->
+   <MDButton rippleColor="grey" text="Registrarse" (tap)="register()" isEnabled="{{!loading}}" class="primaryDarkColorBtn btnMargins"></MDButton>
   </form>
 
  </StackLayout>

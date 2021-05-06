@@ -2,19 +2,26 @@
 
 <StackLayout class="p-20">
 
- <image src="res://logo" height="700px" width="auto" stretch="aspectFill"></image>
+ <image src="~/app/images/logo.png" height="600px" width="auto" stretch="aspectFill"></image>
  <form [formGroup]="loginForm" (tap)="login()">
-  <Label text="Email" class="fontSize loginLabelMargins"></Label>
-  <TextField formControlName="email" hint="Ingrese su email"></TextField>
-  <Label text="Contraseña" class="fontSize loginLabelMargins"></Label>
-  <TextField formControlName="password" hint="Ingrese su contraseña" type="password"></TextField>
-  <MDActivityIndicator busy="true"></MDActivityIndicator>
-   <Button text="Iniciar sesión" (tap)="login()" isEnabled="{{!loading}}" class="primaryColorBtn btnMargins"></Button>
+
+  <!--<TextField formControlName="email" hint="Ingrese su email"></TextField> -->
+  <MDTextField  placeholderColor="black" variant="outline"
+                hint="Ingrese su email" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
+                (textChange)="onTextChange($event)" formControlName="email" class="inputHeight textFieldMargins"></MDTextField>
+
+
+  <MDTextField  placeholderColor="black" variant="outline"
+                hint="Ingrese su contraseña" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
+                (textChange)="onTextChange($event)"formControlName="password" class="inputHeight textFieldMargins"></MDTextField>
+
+   <!--<Button text="Iniciar sesión" (tap)="login()" isEnabled="{{!loading}}" class="primaryColorBtn btnMargins"></Button>-->
+   <MDButton rippleColor="grey" text="Iniciar sesión" (tap)="login()" isEnabled="{{!loading}}" class="primaryColorBtn btnMargins"></MDButton>
  </form>
  <br>
   <Label text="¿Aún no estás registrado?" class="fontSize text-center registerLabelMargins"></Label>
-  <Button text="Registrarse" (tap)="register()" isEnabled="{{!loading}}" class="primaryDarkColorBtn btnMargins"></Button>
 
+ <MDButton rippleColor="grey" text="Registrarse" (tap)="register()" isEnabled="{{!loading}}" class="primaryDarkColorBtn btnMargins"></MDButton>
 
 </StackLayout>
 </ScrollView>

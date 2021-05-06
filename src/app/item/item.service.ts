@@ -15,7 +15,7 @@ export class ItemService {
     { id: 7, name: 'Arda', role: 'Midfielder' },
     { id: 8, name: 'A. Iniesta', role: 'Midfielder' },
     { id: 9, name: 'Suárez', role: 'Forward' },
-    { id: 10, name: 'Messi', role: 'Forward' },
+    { id: 10, name: 'Messiiiiiiiiiiii', role: 'Forward' },
     { id: 11, name: 'Neymar', role: 'Forward' },
     { id: 12, name: 'Rafinha', role: 'Midfielder' },
     { id: 13, name: 'Cillessen', role: 'Goalkeeper' },

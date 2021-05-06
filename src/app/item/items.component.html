@@ -26,6 +26,10 @@ You can learn more about the NativeScript core theme at https://github.com/nativ
   <ListView [items]="items">
     <ng-template let-item="item">
       <StackLayout [nsRouterLink]="['/item', item.id]">
+        <MDTextField  helper="example helper" placeholderColor="green" keyboardType="datetime"
+                      hint="i am an hint" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
+                      (textChange)="onTextChange($event)"></MDTextField>
+        <MDButton rippleColor="blue" text="text button"></MDButton>
         <Label [text]="item.name"></Label>
       </StackLayout>
     </ng-template>
