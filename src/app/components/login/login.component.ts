@@ -7,7 +7,7 @@ import {showActionSnackbar, showColorfulSnackbar} from "~/app/components/snackba
 
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
@@ -42,7 +42,7 @@ export class LoginComponent  {
     } else {
       this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).subscribe(response => {
         console.log("Response del login --->");
-        console.log(response.headers);
+        console.log(response.headers.get("jwt"));
         this.loading = false;
         this.router.navigate(['home'])
       }, error => {

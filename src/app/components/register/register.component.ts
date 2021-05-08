@@ -7,7 +7,7 @@ import {showActionSnackbar, showColorfulSnackbar} from "~/app/components/snackba
 
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
