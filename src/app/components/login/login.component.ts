@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {Page, ScrollEventData, ScrollView} from "@nativescript/core";
 import {AuthService} from "~/app/services/AuthService";
 import {showActionSnackbar, showColorfulSnackbar} from "~/app/components/snackbar/Snackbar";
+import {User} from "~/app/interfaces/User";
 
 
 @Component({
@@ -32,6 +33,9 @@ export class LoginComponent  {
   }
 
   public login(){
+
+    let user : User;
+
     this.loading = true;
 
     console.log("Login con datos >>>>")
@@ -41,10 +45,12 @@ export class LoginComponent  {
       showActionSnackbar("Debe ingresar su usuario y contraseña", "Cerrar", 10000)
     } else {
       this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).subscribe(response => {
-        console.log("Response del login --->");
-        console.log(response.headers.get("jwt"));
+        console.log("Se imprime el id recibido post login-->")
+        console.log(response)
+        var userId = response.id
         this.loading = false;
-        this.router.navigate(['home'])
+        this.router.navigate(['home', userId])
+
       }, error => {
         console.log("Ocurrio un error al intentar realizar el login :/ ")
         console.log(error)

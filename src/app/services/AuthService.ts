@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {HttpResponse, Observable} from "@nativescript/core";
+import {User} from "~/app/interfaces/User";
+import {map, catchError} from "rxjs/operators";
+import {throwError} from "rxjs";
 
 @Injectable({
     providedIn: 'root',
@@ -20,7 +23,15 @@ export class AuthService {
         };
 
         console.log("Entre al AuthService.Login().. Se intentara hacer el request --> ")
-        return this.http.post<HttpResponse>(`${this.url}/api/login`, loginRequest, {observe: 'response'})
+
+      return this.http.post(`${this.url}/api/login`, loginRequest, )
+          .pipe(
+            map((data: User) => {
+              return data;
+            }), catchError( error => {
+              return throwError( 'Something went wrong!' );
+            })
+        )
     }
 
 
