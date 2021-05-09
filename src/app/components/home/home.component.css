@@ -3,6 +3,13 @@
     color: white;
 }
 .bottomNavigation{
+    background-color: #fc548e;
+    color: white;
+}
+
+.logOutBtn {
     background-color: #c41061;
     color: white;
 }
+
+

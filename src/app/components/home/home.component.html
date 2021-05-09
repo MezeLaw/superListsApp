@@ -1,23 +1,34 @@
-<ActionBar title="Hola Usuario!" class="actionBar">
-    <ActionItem text="Salir" (tap)="onDelete()"
-                ios.systemIcon="16" ios.position="right" android.position="popup">
-    </ActionItem>
+<ActionBar class="actionBar">
+    <StackLayout orientation="horizontal" horizontalAlignment="left" class="action-bar-custom">
+
+            <GridLayout rows="auto" columns="*">
+                <Label row="0" horizontalAlignment="left" text="Hola !" class="left actionBar" fontSize="25"></Label>
+                <MDButton row="0" rippleColor=""   horizontalAlignment="right" text="&#xe9ba;" class="m-icon right logOutBtn btnMargins" fontSize="25"></MDButton>
+            </GridLayout>
+
+
+            <!--
+            <Image src="font://&#xe8e5;" class="m-icon" width="22"></Image>
+            <Button text="&#xe8e5;" class="m-icon -primary" fontSize="22"></Button>
+            <Label text="&#xe8e5;" class="m-icon m-t-15" fontSize="22"></Label>
+            -->
+
+    </StackLayout>
 </ActionBar>
-<MDBottomNavigation selectedIndex="1">
+<MDBottomNavigation selectedIndex="0">
     <!-- The bottom tab UI is created via TabStrip (the containier) and TabStripItem (for each tab)-->
     <MDTabStrip class="bottomNavigation">
         <MDTabStripItem>
             <Label text="Inicio"></Label>
-            <span class="material-icons">face</span>
-            <Image src="font://&#xf015;" class="fas"></Image>
+            <Image src="font://&#xe88a;" class="m-icon"></Image>
         </MDTabStripItem>
         <MDTabStripItem class="special">
             <Label text="Listas"></Label>
-            <Image src="font://&#xf007;" class="fas"></Image>
+            <Image src="font://&#xe896;" class="m-icon"></Image>
         </MDTabStripItem>
         <MDTabStripItem class="special">
             <Label text="Perfil"></Label>
-            <Image src="font://&#xf00e;" class="fas"></Image>
+            <Image src="font://&#xe853;" class="m-icon"></Image>
         </MDTabStripItem>
     </MDTabStrip>
 
@@ -29,12 +40,12 @@
     </MDTabContentItem>
     <MDTabContentItem>
         <GridLayout>
-            <Label text="Account Page" class="h2 text-center"></Label>
+            <Label text="Lists Page" class="h2 text-center"></Label>
         </GridLayout>
     </MDTabContentItem>
     <MDTabContentItem>
         <GridLayout>
-            <Label text="Search Page" class="h2 text-center"></Label>
+            <Label text="Perfil Page" class="h2 text-center"></Label>
         </GridLayout>
     </MDTabContentItem>
 </MDBottomNavigation>

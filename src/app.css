@@ -23,3 +23,8 @@ The following CSS rule changes the font size of all Buttons that have the
 Button.-primary {
   font-size: 18;
 }
+
+.m-icon {
+  font-family: "Material Icons", "MaterialIcons-Regular";
+  font-weight: 400;
+}
