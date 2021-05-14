@@ -5,6 +5,7 @@ import {Page, ScrollEventData, ScrollView} from "@nativescript/core";
 import {AuthService} from "~/app/services/AuthService";
 import {showActionSnackbar, showColorfulSnackbar} from "~/app/components/snackbar/Snackbar";
 import {User} from "~/app/interfaces/User";
+import {timeout} from "rxjs/operators";
 
 
 @Component({
@@ -45,7 +46,7 @@ export class LoginComponent  {
       this.loading = false
       showActionSnackbar("Debe ingresar su usuario y contraseña", "Cerrar", 10000)
     } else {
-      this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).subscribe(response => {
+      this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).pipe(timeout(12500)).subscribe(response => {
         console.log("Se imprime el id recibido post login-->")
         console.log(response)
         var userId = response.id
@@ -54,9 +55,15 @@ export class LoginComponent  {
 
       }, error => {
         console.log("Ocurrio un error al intentar realizar el login :/ ")
-        console.log(error)
-        this.loading = false;
-        showActionSnackbar(error.error.message, "Cerrar", 10000)
+
+        if(error == "TimeoutError: Timeout has occurred") {
+          this.loading = false;
+          showColorfulSnackbar("Servicio no disponible momentáneamente. Intente mas tarde.", "white", "white", "red")
+        } else {
+          console.log(error)
+          this.loading = false;
+          showActionSnackbar(error.error.message, "Cerrar", 10000)
+        }
       })
     }
   }

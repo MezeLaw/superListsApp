@@ -4,6 +4,7 @@ import {NativeScriptFormsModule} from "@nativescript/angular";
 import {Page, ScrollEventData, ScrollView} from "@nativescript/core";
 import {AuthService} from "~/app/services/AuthService";
 import {showActionSnackbar, showColorfulSnackbar} from "~/app/components/snackbar/Snackbar";
+import {timeout} from "rxjs/operators";
 
 
 @Component({
@@ -51,7 +52,7 @@ export class RegisterComponent {
       showActionSnackbar("Debe completar todos los campos para el registro.", "Cerrar", 10000)
     } else {
 
-      this.authService.register(email, password, nombre, apellido).subscribe(response => {
+      this.authService.register(email, password, nombre, apellido).pipe(timeout(12500)).subscribe(response => {
         console.log(response)
         if (response.status == 200) {
           console.log("Se realizo el registro satisfactoriamente.")
@@ -65,10 +66,16 @@ export class RegisterComponent {
 
       }, error => {
         console.log(error)
-        console.log("Ocurrio un error al intentar realizar el registro.")
-        this.loading = false;
-        showColorfulSnackbar("Ocurrio un error al intentar realizar el registro.", "white", "white", "red")
-      })
+
+        if(error == "TimeoutError: Timeout has occurred"){
+          this.loading = false;
+          showColorfulSnackbar("Servicio no disponible momentáneamente. Intente mas tarde.", "white", "white", "red")
+        } else {
+          console.log("Ocurrio un error al intentar realizar el registro.")
+          this.loading = false;
+          showColorfulSnackbar("Ocurrio un error al intentar realizar el registro.", "white", "white", "red")
+        }
+       })
     }
 
   }
