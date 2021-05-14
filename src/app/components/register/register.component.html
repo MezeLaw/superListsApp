@@ -17,24 +17,28 @@
    <Label text="Apellido" class="fontSize registerLabelMargins"></Label>
    <TextField formControlName="apellido" hint="Ej Perez"></TextField>
   -->
-
+    <<GridLayout class="m-10" columns="*,auto">
    <MDTextField  placeholderColor="black" variant="outline"
                  hint="Ingrese su email" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
                  (textChange)="onTextChange($event)" formControlName="email" class="inputHeight textFieldMargins"></MDTextField>
-
-
-   <MDTextField  placeholderColor="black" variant="outline"
+  </GridLayout>
+      <GridLayout class="m-10" columns="*,auto">
+   <MDTextField  secure="{{ secure }}" placeholderColor="black" variant="outline"
                  hint="Ingrese su contraseña" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
                  (textChange)="onTextChange($event)" formControlName="password" class="inputHeight textFieldMargins"></MDTextField>
-
+          <MDButton  *ngIf="secure" horizontalAlignment="right" text="&#xe8f4;" class="m-icon right showPasswordBtn" fontSize="15" (tap)="hidePassword()"></MDButton>
+          <MDButton  *ngIf="!secure" horizontalAlignment="right" text="&#xe8f5;" class="m-icon right showPasswordBtn" fontSize="15" (tap)="hidePassword()"></MDButton>
+      </GridLayout>
+      <<GridLayout class="m-10" columns="*,auto">
    <MDTextField  placeholderColor="black" variant="outline"
                  hint="Ingrese su nombre" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
                  (textChange)="onTextChange($event)" formControlName="nombre" class="inputHeight textFieldMargins"></MDTextField>
-
+  </GridLayout>
+      <<GridLayout class="m-10" columns="*,auto">>
    <MDTextField  placeholderColor="black" variant="outline"
                  hint="Ingrese su apellido" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
                  (textChange)="onTextChange($event)" formControlName="apellido" class="inputHeight textFieldMargins"></MDTextField>
-
+  </GridLayout>
    <!--<Button text="Registrarse"  isEnabled="{{!loading}}" (tap)="register()" class="primaryDarkColorBtn btnMargins"></Button>
  -->
    <MDButton rippleColor="grey" text="Registrarse" (tap)="register()" isEnabled="{{!loading}}" class="primaryDarkColorBtn btnMargins"></MDButton>

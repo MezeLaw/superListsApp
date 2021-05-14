@@ -3,18 +3,22 @@
 <StackLayout class="p-20">
 
  <image src="~/app/images/superlists.png" height="350px" width="auto" class="logo"></image>
- <form [formGroup]="loginForm" (tap)="login()">
 
+ <form [formGroup]="loginForm" (tap)="login()">
+  <GridLayout class="m-10 input-border" columns="*,auto">
   <!--<TextField formControlName="email" hint="Ingrese su email"></TextField> -->
   <MDTextField  placeholderColor="black" variant="outline"
                 hint="Ingrese su email" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
                 (textChange)="onTextChange($event)" formControlName="email" class="inputHeight textFieldMargins"></MDTextField>
-
-
-  <MDTextField  placeholderColor="black" variant="outline"
+  </GridLayout>
+  <GridLayout class="m-10 input-border" columns="*,auto">
+  <MDTextField secure="{{ secure }}" placeholderColor="black" variant="outline"
                 hint="Ingrese su contraseña" returnKeyType="next" (focus)="onFocus($event)" (blur)="onBlur($event)"
                 (textChange)="onTextChange($event)"formControlName="password" class="inputHeight textFieldMargins"></MDTextField>
 
+   <MDButton  *ngIf="secure" horizontalAlignment="right" text="&#xe8f4;" class="m-icon right showPasswordBtn" fontSize="15" (tap)="hidePassword()"></MDButton>
+   <MDButton  *ngIf="!secure" horizontalAlignment="right" text="&#xe8f5;" class="m-icon right showPasswordBtn" fontSize="15" (tap)="hidePassword()"></MDButton>
+  </GridLayout>
    <!--<Button text="Iniciar sesión" (tap)="login()" isEnabled="{{!loading}}" class="primaryColorBtn btnMargins"></Button>-->
    <MDButton rippleColor="grey" text="Iniciar sesión" (tap)="login()" isEnabled="{{!loading}}" class="primaryColorBtn btnMargins"></MDButton>
  </form>

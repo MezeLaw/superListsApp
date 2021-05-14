@@ -14,6 +14,7 @@ import {User} from "~/app/interfaces/User";
 })
 
 export class LoginComponent  {
+  secure = true
 
   public loginForm = this.fb.group({
     email: [''],
@@ -79,4 +80,8 @@ export class LoginComponent  {
 
   }
 
+    hidePassword() {
+    console.log("Tocando el candado")
+     this.secure = !this.secure
+    }
 }

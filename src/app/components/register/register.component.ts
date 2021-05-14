@@ -29,6 +29,7 @@ export class RegisterComponent {
   })
 
   public loading : boolean = false;
+  secure = true;
 
   constructor(private fb: FormBuilder, private page : Page, private authService : AuthService) {
     page.actionBarHidden = true;
@@ -81,5 +82,9 @@ export class RegisterComponent {
 
   onTextChange($event: any) {
 
+  }
+
+  hidePassword() {
+    this.secure = !this.secure
   }
 }
