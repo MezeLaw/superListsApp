@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {RegisterComponent} from "~/app/components/register/register.component";
 import {HomeComponent} from "~/app/components/home/home.component";
 import {NativeScriptMaterialBottomNavigationModule} from "@nativescript-community/ui-material-bottom-navigation/angular";
+import {TaskListsComponent} from "~/app/components/taskLists/taskLists.component";
 
 installMixins();
 
@@ -32,7 +33,8 @@ installMixins();
                   ItemDetailComponent,
                   LoginComponent,
                   RegisterComponent,
-                  HomeComponent],
+                  HomeComponent,
+                  TaskListsComponent],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA],
 })

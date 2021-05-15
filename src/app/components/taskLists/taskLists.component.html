@@ -1,28 +1,23 @@
 <ActionBar class="actionBar">
     <StackLayout orientation="horizontal" horizontalAlignment="left" class="action-bar-custom">
 
-            <GridLayout rows="auto" columns="*">
-                <Label row="0" horizontalAlignment="left" text="Hola {{userFullName}}!" class="left actionBar" fontSize="25"></Label>
-                <MDButton row="0" rippleColor=""   horizontalAlignment="right" text="&#xe9ba;" class="m-icon right logOutBtn" fontSize="20"></MDButton>
-            </GridLayout>
+        <GridLayout rows="auto" columns="*">
+            <Label row="0" horizontalAlignment="left" text="Mis listas" class="left actionBar" fontSize="25"></Label>
+            <MDButton row="0" rippleColor=""   horizontalAlignment="right" text="&#xe9ba;" class="m-icon right logOutBtn" fontSize="20"></MDButton>
+        </GridLayout>
 
 
-            <!--
-            <Image src="font://&#xe8e5;" class="m-icon" width="22"></Image>
-            <Button text="&#xe8e5;" class="m-icon -primary" fontSize="22"></Button>
-            <Label text="&#xe8e5;" class="m-icon m-t-15" fontSize="22"></Label>
-            -->
 
     </StackLayout>
 </ActionBar>
-<MDBottomNavigation selectedIndex="0">
+<MDBottomNavigation selectedIndex="1">
     <!-- The bottom tab UI is created via TabStrip (the containier) and TabStripItem (for each tab)-->
     <MDTabStrip class="bottomNavigation">
-        <MDTabStripItem>
+        <MDTabStripItem (tap)="goHome()">
             <Label text="Inicio"></Label>
             <Image src="font://&#xe88a;" class="m-icon"></Image>
         </MDTabStripItem>
-        <MDTabStripItem class="special" (tap)="getListas()">
+        <MDTabStripItem class="special">
             <Label text="Listas"></Label>
             <Image src="font://&#xe896;" class="m-icon"></Image>
         </MDTabStripItem>
@@ -39,9 +34,24 @@
         </GridLayout>
     </MDTabContentItem>
     <MDTabContentItem>
-        <GridLayout>
-            <!--<page-router-outlet></page-router-outlet>-->
-        </GridLayout>
+
+
+        <! --  Want to put my list here! -->>
+
+        <ListView row="0" [items]="items" >
+            <ListView.itemTemplate *ngFor="let item of items">
+                <StackLayout marginTop="2" height="auto">
+                    <GridLayout rows="" columns="*"
+                                class="log-group-item item-background">
+                        <StackLayout>
+                            <Label text="{{item.name}}" textWrap="true" textAlignment="left"
+                                   fontSize="12" color="black"></Label>
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+            </ListView.itemTemplate>
+        </ListView>
+
     </MDTabContentItem>
     <MDTabContentItem>
         <GridLayout>

@@ -47,4 +47,9 @@ export class HomeComponent implements OnInit {
   onBottomNavigationTabPressed($event: any) {
 
   }
+
+  getListas() {
+    console.log("Apretaste en listas")
+    this.router.navigate(["/lists", this.userId])
+  }
 }

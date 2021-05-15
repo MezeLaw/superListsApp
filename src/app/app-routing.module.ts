@@ -7,6 +7,7 @@ import { ItemDetailComponent } from './item/item-detail.component'
 import {LoginComponent} from "~/app/components/login/login.component";
 import {RegisterComponent} from "~/app/components/register/register.component";
 import {HomeComponent} from "~/app/components/home/home.component";
+import {TaskListsComponent} from "~/app/components/taskLists/taskLists.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home/:id', component: HomeComponent },
+  { path: 'lists/:userId', component : TaskListsComponent}
 ]
 
 @NgModule({
