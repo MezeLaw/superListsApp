@@ -2,6 +2,9 @@ import {Component, OnInit} from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {HomeService} from "~/app/services/HomeService";
 import {Item} from "~/app/item/item";
+import { registerElement } from '@nativescript/angular';
+import { FloatingActionButton } from '@nativescript-community/ui-material-floatingactionbutton';
+registerElement('MDFloatingActionButton', () => FloatingActionButton);
 
 @Component({
   selector: 'app-taskLists',
