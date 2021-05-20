@@ -60,6 +60,7 @@ export class LoginComponent  {
           this.loading = false;
           showColorfulSnackbar("Servicio no disponible momentáneamente. Intente mas tarde.", "white", "white", "red")
         } else {
+          console.log("Else login")
           console.log(error)
           this.loading = false;
           showActionSnackbar(error.error.message, "Cerrar", 10000)

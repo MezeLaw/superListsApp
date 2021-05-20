@@ -15,6 +15,9 @@ import {RegisterComponent} from "~/app/components/register/register.component";
 import {HomeComponent} from "~/app/components/home/home.component";
 import {NativeScriptMaterialBottomNavigationModule} from "@nativescript-community/ui-material-bottom-navigation/angular";
 import {TaskListsComponent} from "~/app/components/taskLists/taskLists.component";
+import { registerElement } from '@nativescript/angular';
+import { FloatingActionButton } from '@nativescript-community/ui-material-floatingactionbutton';
+registerElement('MDFloatingActionButton', () => FloatingActionButton);
 
 installMixins();
 

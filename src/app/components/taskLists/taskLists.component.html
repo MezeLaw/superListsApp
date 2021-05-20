@@ -3,7 +3,7 @@
 
         <GridLayout rows="auto" columns="*">
             <Label row="0" horizontalAlignment="left" text="Mis listas" class="left actionBar" fontSize="25"></Label>
-            <MDButton row="0" rippleColor=""   horizontalAlignment="right" text="&#xe145;" class="m-icon center  addBtn" fontSize="20"></MDButton>
+ <!--            <MDButton row="0" rippleColor=""   horizontalAlignment="right" text="&#xe145;" class="m-icon left  addBtn" fontSize="20"></MDButton> -->
             <MDButton row="0" rippleColor=""   horizontalAlignment="right" text="&#xe9ba;" class="m-icon right logOutBtn" fontSize="20"></MDButton>
         </GridLayout>
 
@@ -32,14 +32,17 @@
     <MDTabContentItem>
         <GridLayout>
             <Label text="Home Page" class="h2 text-center"></Label>
+
         </GridLayout>
+
     </MDTabContentItem>
     <MDTabContentItem>
 
 
         <! --  Want to put my list here! -->>
-
+        <GridLayout>
         <ListView row="0" [items]="items" >
+
             <ListView.itemTemplate *ngFor="let item of items">
                 <StackLayout marginTop="2" height="auto">
                     <GridLayout rows="" columns="*"
@@ -52,8 +55,9 @@
                 </StackLayout>
             </ListView.itemTemplate>
         </ListView>
-
-
+            <MDFloatingActionButton rippleColor="grey" src="~/app/images/add-plus-button.png" horizontalAlignment="right" class="materialAddBtn">
+            </MDFloatingActionButton>
+        </GridLayout>
 
 
     </MDTabContentItem>

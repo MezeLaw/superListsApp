@@ -29,7 +29,7 @@ export class AuthService {
             map((data: User) => {
               return data;
             }), catchError( error => {
-              return throwError( 'Something went wrong!' );
+              return throwError( error );
             })
         )
     }
