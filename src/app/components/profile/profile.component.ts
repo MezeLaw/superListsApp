@@ -1,33 +1,36 @@
 import {Component, OnInit} from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {HomeService} from "~/app/services/HomeService";
+import {ProfileService} from "~/app/services/ProfileService";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css'],
 })
 
-export class HomeComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
   userId : number;
   userFullName : string;
 
-  constructor(private route: ActivatedRoute, private homeService : HomeService, private router : Router) {
+  constructor(private route: ActivatedRoute, private profileService : ProfileService, private router : Router) {
   }
 
   ngOnInit() {
     this.route.queryParams.subscribe( params => {
-      this.userId = this.route.snapshot.params.id
+      this.userId = this.route.snapshot.params.userId
       console.log("el id recibido por param es: ")
       console.log(this.userId)
 
       //Hago request a servicio que devuelve datos grales..
 
-      this.homeService.getHome(this.userId).subscribe( response  => {
+      this.profileService.getProfile(this.userId).subscribe( response  => {
           this.userFullName = response.firstName + " " + response.lastName
+        console.log(response)
       }, error => {
-        console.log("Ocurrio un error al intentar realizar el login :/ ")
+        console.log("Ocurrio un error al intentar realizar el request :/ ")
+        console.log(error)
         this.router.navigate(["/login"])
       })
     })
@@ -51,10 +54,5 @@ export class HomeComponent implements OnInit {
   getListas() {
     console.log("Apretaste en listas")
     this.router.navigate(["/lists", this.userId])
-  }
-
-  getProfile() {
-    console.log("Apretaste en profile")
-    this.router.navigate(["/profile", this.userId])
   }
 }

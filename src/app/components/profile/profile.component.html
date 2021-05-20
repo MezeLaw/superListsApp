@@ -15,7 +15,7 @@
 
     </StackLayout>
 </ActionBar>
-<MDBottomNavigation selectedIndex="0">
+<MDBottomNavigation selectedIndex="2">
     <!-- The bottom tab UI is created via TabStrip (the containier) and TabStripItem (for each tab)-->
     <MDTabStrip class="bottomNavigation">
         <MDTabStripItem>
@@ -26,7 +26,7 @@
             <Label text="Listas"></Label>
             <Image src="font://&#xe896;" class="m-icon"></Image>
         </MDTabStripItem>
-        <MDTabStripItem class="special" (tap)="getProfile();">
+        <MDTabStripItem class="special">
             <Label text="Perfil"></Label>
             <Image src="font://&#xe853;" class="m-icon"></Image>
         </MDTabStripItem>
@@ -36,6 +36,7 @@
     <MDTabContentItem>
         <GridLayout>
             <Label text="Home Page" class="h2 text-center"></Label>
+
         </GridLayout>
     </MDTabContentItem>
     <MDTabContentItem>
@@ -44,9 +45,20 @@
         </GridLayout>
     </MDTabContentItem>
     <MDTabContentItem>
+
         <GridLayout>
-            <Label text="Perfil Page" class="h2 text-center"></Label>
+
+        <StackLayout backgroundColor="white">
+
+            <Label text="Mi perfil" class="h2 text-center"></Label>
+
+            <label text="Nombre: " height="70" backgroundColor="" fontSize="18"></label>
+            <label text="Apellido: " height="70" backgroundColor="" fontSize="18"></label>
+            <label text="Email: " height="70" backgroundColor="" fontSize="18"></label>
+        </StackLayout>
         </GridLayout>
+
+
     </MDTabContentItem>
 </MDBottomNavigation>
 

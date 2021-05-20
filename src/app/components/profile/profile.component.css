@@ -1,0 +1,21 @@
+.actionBar{
+    background-color: #c41061;
+    color: white;
+}
+.bottomNavigation{
+    background-color: #fc548e;
+    color: white;
+}
+
+.logOutBtn {
+    background-color: #c41061;
+    color: white;
+    width: 10%;
+    margin-right: 7px;
+}
+
+.labelMargins{
+    margin-top: 70px;
+}
+
+

@@ -22,7 +22,7 @@
             <Label text="Listas"></Label>
             <Image src="font://&#xe896;" class="m-icon"></Image>
         </MDTabStripItem>
-        <MDTabStripItem class="special">
+        <MDTabStripItem class="special" (tap)="getProfile();">
             <Label text="Perfil"></Label>
             <Image src="font://&#xe853;" class="m-icon"></Image>
         </MDTabStripItem>
@@ -63,7 +63,7 @@
     </MDTabContentItem>
     <MDTabContentItem>
         <GridLayout>
-            <Label text="Perfil Page" class="h2 text-center"></Label>
+
         </GridLayout>
     </MDTabContentItem>
 </MDBottomNavigation>

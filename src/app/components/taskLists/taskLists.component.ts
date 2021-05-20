@@ -80,4 +80,8 @@ export class TaskListsComponent implements OnInit {
   goHome() {
     this.router.navigate(["home", this.userId])
   }
+
+  getProfile() {
+    this.router.navigate(["profile", this.userId])
+  }
 }
